@@ -1,0 +1,120 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffe4ec, #fff4f2);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.envelope-container {
+    position: relative;
+    text-align: center;
+}
+
+.envelope {
+    position: relative;
+    width: 250px;
+    height: 180px;
+    perspective: 1000px;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-bottom: 90px solid #fdf6f9;
+    transition: transform 1s ease;
+    transform-origin: top center;
+    z-index: 2;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+
+.letter {
+    position: absolute;
+    bottom: 0;
+    width: 250px;
+    height: 135px;
+    background: #fffafc;
+    border: 2px solid #ffc1d8;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.letter p {
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #d36c84;
+    line-height: 1.5;
+    min-height: 40px;
+}
+
+button#openBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #ff8fa3;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+}
+
+button#openBtn:hover {
+    background: #ffafbd;
+}
+
+.open .flap {
+    transform: rotateX(-150deg);
+}
+
+.open .letter {
+    opacity: 1;
+}
+
+/* Floating hearts */
+.heart-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    color: #ff6b81;
+    animation: float 4s linear forwards;
+    user-select: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
